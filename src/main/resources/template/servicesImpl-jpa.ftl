@@ -61,7 +61,6 @@ public class ${className} implements  ${pClassName} {
         }else{
             return ${daoClassNameT}.findAll(Example.of(${paramT}));
         }
-
     }
 
 }
