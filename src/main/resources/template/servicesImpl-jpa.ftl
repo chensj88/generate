@@ -56,7 +56,12 @@ public class ${className} implements  ${pClassName} {
 
     @Override
     public List<${domainName}> findAllBy${domainName}(${domainName} ${paramT}){
-        return ${daoClassNameT}.findAll(Example.of(${paramT}));
+        if( ${paramT} == null ){
+            return ${daoClassNameT}.findAll();
+        }else{
+            return ${daoClassNameT}.findAll(Example.of(${paramT}));
+        }
+
     }
 
 }
