@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.Properties;
 
 /**
+ * properties文件加载
+ *
  * @author chenshijie
- * @title properties文件加载
- * @email chensj@winning.com.cm
- * @package cn.com.ss.generate.config.util
  * @date 2018-05-21 21:50
  */
 public class PropertiesLoader {
@@ -49,11 +48,11 @@ public class PropertiesLoader {
         properties.setProperty(key, value);
     }
 
-    public static List<String> getTableNameList(){
+    public static List<String> getTableNameList() {
         List<String> tableNameList = new ArrayList<>();
         String tableNameString = properties.getProperty("config.table");
-        for (int i = 0 ; i < tableNameString.split(",").length; i++ ){
-            tableNameList.add( tableNameString.split(",")[i]);
+        for (int i = 0; i < tableNameString.split(",").length; i++) {
+            tableNameList.add(tableNameString.split(",")[i].trim());
         }
         return tableNameList;
     }

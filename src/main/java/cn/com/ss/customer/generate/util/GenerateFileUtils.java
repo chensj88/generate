@@ -29,7 +29,7 @@ import java.util.Map;
  */
 public class GenerateFileUtils {
 
-    private static boolean isConfiig = false;
+    private static boolean isConfig = false;
 
     private static Logger logger = LoggerFactory.getLogger(GenerateFileUtils.class);
 
@@ -42,7 +42,7 @@ public class GenerateFileUtils {
             e.printStackTrace();
         }
         // 判断JPA
-        boolean isJpa = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpa"));
+        boolean isJpa = Boolean.parseBoolean(PropertiesLoader.getProperty("config.isJpa"));
         logger.info("是否使用JPA:{}",isJpa);
         if(isJpa){
             logger.info("生成Row 分页文件信息");
@@ -52,9 +52,9 @@ public class GenerateFileUtils {
             logger.info("生成JPA文件结束");
         }else{
             logger.info("生成MyBatis文件开始,Table Name:{}",info.getTableName());
-            if(!isConfiig){
+            if(!isConfig){
                 generateOnceFile();
-                isConfiig = true;
+                isConfig = true;
             }
             generateFile(info);
             logger.info("生成MyBatis文件结束");
@@ -310,7 +310,7 @@ public class GenerateFileUtils {
             logger.info("生成MyBatis Domain,Table Name:{}",info.getTableName());
             generateDomainFile(domainData, info);
         }
-        logger.info("MyBatis中是否使用Redis:{}",Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok")));
+        logger.info("MyBatis中是否使用Redis:{}",Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis")));
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
             logger.info("生成MyBatis-Redis Client,Table Name:{}",info.getTableName());
             generateClientFileForRedis(clientData, info);

@@ -4,21 +4,23 @@ import cn.com.ss.customer.generate.domain.TableInfo;
 import cn.com.ss.customer.generate.file.GeneratedFile;
 
 /**
+ * java文件生成
+ *
  * @author chenshijie
- * @title java文件生成
- * @email chensj@winning.com.cm
- * @package cn.com.ss.customer.generate.file.java
  * @date 2018-05-25 20:35
  */
 public class GeneratedJavaFile extends GeneratedFile {
 
-    /** 文件编码. */
+    /**
+     * 文件编码.
+     */
     private String fileEncoding;
 
     private TableInfo tableInfo;
 
     /**
      * 构造方法
+     *
      * @param tableInfo
      */
     public GeneratedJavaFile(TableInfo tableInfo) {

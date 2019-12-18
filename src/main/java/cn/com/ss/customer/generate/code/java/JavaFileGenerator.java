@@ -205,7 +205,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("rowPackage",Constant.DOMAIN_PACKAGE+".support.Row;");
         dataMap.put("basePackage",Constant.CONTROLLER_PACKAGE+".BaseController;");
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
-        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"控制类");
         dataMap.put("email", PropertiesLoader.getProperty("config.email"));
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("domainName",t.getDomainName());
