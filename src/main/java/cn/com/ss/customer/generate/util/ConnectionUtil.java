@@ -128,8 +128,10 @@ public class ConnectionUtil {
          } catch (Exception e) {
              e.printStackTrace();
              throw new Exception(e.getMessage());
+         }finally {
+             assert conn != null;
+             conn.close();
          }
-         System.out.println(conn);
       }
 
 }

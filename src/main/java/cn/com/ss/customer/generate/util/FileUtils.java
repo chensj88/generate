@@ -19,7 +19,6 @@ public class FileUtils {
         }
         path.append(targetPath);
         String[] paths = targetPackage.split("\\.");
-        System.out.println(paths);
         for(int i=0; i < paths.length ; i++){
             path.append("/"+ paths[i]);
         }
