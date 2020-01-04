@@ -4,6 +4,10 @@ import cn.com.ss.customer.generate.Constant;
 import cn.com.ss.customer.generate.domain.ActualTableName;
 import cn.com.ss.customer.generate.domain.TableColumnInfo;
 import cn.com.ss.customer.generate.domain.TableInfo;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.mariadb.jdbc.UrlParser;
+
 import static cn.com.ss.customer.generate.util.ConnectionUtil.closeResultSet;
 
 import java.sql.*;
@@ -74,6 +78,10 @@ public class DatabaseUtils {
                             rs.getString("TABLE_CAT"),
                             rs.getString("TABLE_SCHEM"),
                             rs.getString("TABLE_NAME"));
+                }
+                if(UrlParser.acceptsUrl(metaData.getURL())){
+                    UrlParser parse = UrlParser.parse(metaData.getURL());
+                    atn.setSchema(parse.getDatabase());
                 }
             }
 

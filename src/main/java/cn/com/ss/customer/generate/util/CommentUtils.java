@@ -37,7 +37,13 @@ public class CommentUtils {
             } else {
                 return tableColumnCommentForrMySql(info, colName);
             }
-        } else if (JdbcConstants.ORACLE.equals(dbType)) {
+        } else if (JdbcConstants.MARIADB.equals(dbType)) {
+            if (type == 0) {
+                return tableCommentForMySql(info) != null ? tableCommentForMySql(info) : "";
+            } else {
+                return tableColumnCommentForrMySql(info, colName);
+            }
+        }else if (JdbcConstants.ORACLE.equals(dbType)) {
             if (type == 0) {
                 return tableCommentForOracle(info);
             } else {
